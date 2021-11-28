@@ -1,0 +1,79 @@
+
+h2 {
+    font-weight: bold;
+}
+
+h4 {
+    text-decoration: underline;
+}
+
+/*Style de l'ajout d'une to Do List */
+.AjoutEntite {
+    background-image: url(../img/test.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 100;
+    color: white;
+    text-align: left;
+    margin-top: 100px;
+}
+
+
+/* Style de input saisie de texte */
+.InputSaisie {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    width: 75%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+}
+
+/* Style du bouton d'ajout de liste ou tache */
+.addBtn {
+    padding: 10px;
+    width: 25%;
+    background: white;
+    color: #555;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 0;
+}
+
+/* Style du bouton d'ajout de liste ou tache */
+.addBtn:hover {
+    background-color: #bbb;
+}
+
+
+/*Style pour les listes de taches*/
+.Listes {
+    list-style: square;
+    margin: 100;
+    color: black;
+    padding: 20;
+    box-shadow: 0 0 3px 3px #238bc4;
+}
+
+.Listes li{
+    color: black;
+}
+
+.btn-outline-primary {
+    padding: 14px 20px;
+    margin-top: 25px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* bouton actions de la page survol */
+.btn-outline-primary:hover {
+    background-color: gray;
+}
+
+
+

@@ -1,0 +1,43 @@
+
+
+/* div qui contient la page */
+#VoirPlusTache
+{
+    text-align: center;
+    color: white;
+    padding: 20;
+    box-shadow: 0 0 3px 3px #54c2ff;
+}
+
+/* tableau pour aligner les taches */
+table {
+    color: white;
+    margin: 30px auto;
+    border-collapse: collapse;
+}
+
+/* cellule du tableau */
+td{
+    border: none;
+    height: 30px;
+    padding: 2px;
+    text-align: center;
+}
+
+/* bouton qui valide une tache cochée ou décochée */
+#updateTerminee{
+    width: 100%;
+}
+/* bouton de suppresion de tache */
+.inputSupprimerTache{
+    padding: 14px;
+    margin-left: 20;
+}
+
+/* bouton de suppresion de la liste de taches */
+#inputSupprimerListe{
+    width: 100%;
+    margin-bottom: 100px;
+    align-self: center;
+    margin-top: 50px;
+}

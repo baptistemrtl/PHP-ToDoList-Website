@@ -1,0 +1,17 @@
+
+
+/* div qui contient les différents éléments de l'ajout description */
+#containerDescription
+{
+    width:75%;
+    padding: 15;
+    margin: auto;
+    box-shadow: 0 0 3px 3px #54c2ff;
+    color: white;
+}
+
+#containerDescription label
+{
+	font-size: 25;
+}
+

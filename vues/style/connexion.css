@@ -1,0 +1,39 @@
+/* div qui contient les différents éléments de la page de connexion*/
+#containerConnexion {
+    width: 400px;
+    padding: 15;
+    margin: auto;
+    box-shadow: 0 0 3px 3px #54c2ff;
+    color: skyblue;
+    height: 450px;
+}
+
+#containerConnexion h1 {
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+}
+
+#containerConnexion input {
+    background-color: #FFF;
+    border: 1px solid #238bc4;
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 2px;
+    color: skyblue;
+
+}
+
+#containerConnexion label {
+    margin-top: 25px;
+}
+
+#containerConnexion input[type=submit] {
+    background-color: #FFF;
+    color: skyblue;
+    padding: 14px 20px;
+    margin-top: 25px;
+    cursor: pointer;
+    width: 100%;
+}
+

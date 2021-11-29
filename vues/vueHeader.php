@@ -1,16 +1,14 @@
 <html lang="fr">
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link type="text/css" href="style/header.css" rel="stylesheet" media="all">
     <link type="text/css" href="style/accueil.css" rel="stylesheet" media="all">
     <link type="text/css" href="style/vueDetailListe.css" rel="stylesheet" media="all">
     <link type="text/css" href="style/ajoutDescription.css" rel="stylesheet" media="all">
     <link type="text/css" href="style/connexion.css" rel="stylesheet" media="all">
+    <link type="text/css" href="style/inscription.css" rel="stylesheet" media="all">
 
     <title>To Do List</title>
 </head>
@@ -31,9 +29,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="index.php">Accueil</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php?action=AfficherAide">Aide</a>
-                </li>
                 <?php if (1 == 2){?> <!---  if (isUtilisateur()){ ---->
                 <li class="nav-item">
                     <a class="nav-link" href="index.php?action=AfficherListeTachesPrivees">Mes Listes privées</a>
@@ -43,8 +38,11 @@
                 </li>
                 <?php } else { ?>
                     <li class="nav-item">
-                    <a class="nav-link" href="index.php?action=action=AfficherConnexion">Se Connecter</a>
-                </li>
+                        <a class="nav-link" href="index.php?action=action=AfficherConnexion">Se Connecter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?action=action=AfficherInscription">S'inscrire</a>
+                    </li>
                 <?php } ?>
             </ul>
         </div>
@@ -53,7 +51,7 @@
 </header>
 
 <div class="jumbotron jumbotron-fluid" id="Accroche">
-    <div class="container-fluid">
+    <div class="container-fluid bg-info">
         <h1 class="display-4 font-weight-bold">Bienvenue sur notre site de création de TO DO LIST !</h1>
         <p class="lead font-weight-bold">Rapide, Efficace, Simple.</p>
     </div>

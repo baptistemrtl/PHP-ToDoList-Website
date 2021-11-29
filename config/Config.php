@@ -15,9 +15,9 @@ $mdp = "OR7M07rEmwW9lq5F";
 //Vues
 $vues['erreur'] = 'vues/vueErreur.php';
 $vues['accueil'] = 'vues/vueAccueil.php';
-$vues['aide'] = 'vues/vueAide.php';
 $vues['vueDetailListe'] = 'vues/vueDetailListe.php';
 $vues['connexion'] = 'vues/vueConnexion.php';
 $vues['vueListesPrivees'] = 'vues/vueListesPrivees.php';
 $vues['ajoutDescriptionListe'] = 'vues/vueAjoutDescriptionListe.php';
+$vues['inscription'] = 'vues/vueInscription.php';
 

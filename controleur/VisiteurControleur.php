@@ -51,8 +51,8 @@ class VisiteurControleur
                 case "AfficherConnexion":
                     $this->AfficherConnexion();
                     break;
-                case "AfficherAide":
-                    $this->AfficherAide();
+                case "AfficherInscription":
+                    $this->AfficherInscription();
                     break;
                 default:
                     $Vueerreur[] = "Erreur d'appel, l'action est inconnue";
@@ -218,14 +218,14 @@ class VisiteurControleur
         require($rep . $vues['connexion']);
     }
 
-
     /**
-     * Permet d'afficher la vue d'aide
+     * Permet d'afficher la vue d'inscription
      */
-    function AfficherAide()
+
+    function AfficherInscription()
     {
         global $rep, $vues;
-        require($rep . $vues['aide']);
+        require($rep . $vues['inscription']);
     }
 
 

@@ -29,7 +29,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="index.php">Accueil</a>
                 </li>
-                <?php if (1 == 2){?> <!---  if (isUtilisateur()){ ---->
+                <?php
+                global $rep;
+                require(__DIR__ . '/../model/ModelUtilisateur.php');
+                if (ModelUtilisateur::isUtilisateur()){?>
                 <li class="nav-item">
                     <a class="nav-link" href="index.php?action=AfficherListeTachesPrivees">Mes Listes privées</a>
                 </li>
@@ -50,9 +53,8 @@
     <hr>
 </header>
 
-<div class="jumbotron jumbotron-fluid" id="Accroche">
+<div class="jumbotron jumbotron-fluid" id="banniere">
     <div class="container-fluid bg-info">
-        <h1 class="display-4 font-weight-bold">Bienvenue sur notre site de création de TO DO LIST !</h1>
-        <p class="lead font-weight-bold">Rapide, Efficace, Simple.</p>
+        <h1 class="display-4 font-weight-bold">To Do List - Baptiste Martel G1</h1>
     </div>
 </div>

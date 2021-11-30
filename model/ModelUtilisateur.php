@@ -43,6 +43,7 @@ class ModelUtilisateur
      */
     static function isUtilisateur(): bool
     {
+
         return (isset ($_SESSION['pseudo']) && isset($_SESSION['role']));
     }
 }

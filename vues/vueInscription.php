@@ -1,79 +1,40 @@
 <?php require("vueHeader.php") ?>
+<?php
+if (isset($data) && !empty($data)) { ?>
+    <div class="alert alert-warning div-alert-inscription-perso" role="alert" style="text-align: center">
+        <?php foreach ($data as $d) {
+            echo $d;
+        } ?>
+    </div>
+    <?php
+}
+?>
+<div id="containerConnexion">
 
-        <div class="login-form">
-            <?php 
-                if(isset($_GET['reg_err']))
-                {
-                    $err = htmlspecialchars($_GET['reg_err']);
+    <h1>S'inscrire</h1>
+    <form method='post' action="index.php?action=Connexion">
+        <p>
+            <label for="inputPseudo">Nom d'utilisateur</label>
+            <input type="text" id="inputPseudo" placeholder="Entrez le nom d'utilisateur..." name="pseudo" required>
+        </p>
 
-                    switch($err)
-                    {
-                        case 'success':
-                        ?>
-                            <div class="alert alert-success">
-                                <strong>Succès</strong> inscription réussie !
-                            </div>
-                        <?php
-                        break;
+        <p>
+            <label for="inputMdp">Mot de passe </label>
+            <input type="password" id="inputMdp" placeholder="Entrez le mot de passe..." name="mdp" required>
+        </p>
 
-                        case 'password':
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Erreur</strong> mot de passe différent
-                            </div>
-                        <?php
-                        break;
+        <p>
+            <label for="inputMdp">Retapez le mot de passe </label>
+            <input type="password" id="inputReMdp" placeholder="Entrez le mot de passe..." name="remdp" required>
+        </p>
 
-                        case 'email':
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Erreur</strong> email non valide
-                            </div>
-                        <?php
-                        break;
+        <p>
+            <input type="submit" value='SIGNIN'>
+        </p>
 
-                        case 'email_length':
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Erreur</strong> email trop long
-                            </div>
-                        <?php 
-                        break;
+    </form>
 
-                        case 'pseudo_length':
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Erreur</strong> pseudo trop long
-                            </div>
-                        <?php 
-                        case 'already':
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Erreur</strong> compte deja existant
-                            </div>
-                        <?php 
+</div>
 
-                    }
-                }
-                ?>
-            
-            <form action="inscription_traitement.php" method="post">
-                <h2 class="text-center">Inscription</h2>       
-                <div class="form-group">
-                    <input type="text" name="pseudo" class="form-control" placeholder="Pseudo" required="required" autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" class="form-control" placeholder="Email" required="required" autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <input type="password" name="password" class="form-control" placeholder="Mot de passe" required="required" autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <input type="password" name="password_retype" class="form-control" placeholder="Re-tapez le mot de passe" required="required" autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">Inscription</button>
-                </div>   
-            </form>
-        </div>
-</html>
+
+</body>

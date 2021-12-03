@@ -48,6 +48,9 @@ class VisiteurControleur
                 case "Connexion":
                     $this->Connexion();
                     break;
+                case "Inscription":
+                    $this->Inscription();
+                    break;
                 case "AfficherConnexion":
                     $this->AfficherConnexion();
                     break;
@@ -194,10 +197,10 @@ class VisiteurControleur
         $mdp = $_REQUEST['mdp'];
         $data = array();
         $Vueerreur = Validation::ValidationConnexion($pseudo, $mdp); // vérification que les données sont valides
-        if (empty($Vueerreur)) { // si valides
+        if (empty($Vueerreur)) { // si valide
             if (ModelUtilisateur::connexion($pseudo, $mdp)) { // si l'utilisateur est dans la base de données
                 $data[] = "Connexion réussie !"; // valeur affichée dans la vue
-                header('Refresh:1;url=index.php');
+                header('Refresh:2;url=index.php');
             } else {
                 $data[] = "Problème de connexion ! Le pseudo ou mot de passe est incorrect !"; // erreur de type pseudo ou mdp incorrect valeur affichée dans la vue
             }
@@ -207,6 +210,39 @@ class VisiteurControleur
         }
         sleep(1); // attente pour afficher bandeau statut connexion
         require($rep . $vues['connexion']);
+    }
+
+    /**
+     * Permet l'inscription d'un visiteur
+     */
+    function Inscription()
+    {
+        global $rep, $vues;
+        $pseudo = $_REQUEST['pseudo'];
+        $mdp = $_REQUEST['mdp'];
+        $remdp = $_REQUEST['remdp'];
+        $data = array();
+        $Vueerreur = Validation::ValidationConnexion($pseudo, $mdp); // vérification que les données sont valides
+        $Vueerreur = Validation::ValidationConnexion($pseudo, $remdp);
+        if (empty($Vueerreur)) { // si valide
+            if (!ModelUtilisateur::findUser($pseudo)) { // si le peuso n'est pas déjà utilisé
+                if (ModelUtilisateur::inscription($pseudo,$mdp,$remdp)) { //Si l'inscription a marché
+                    $data[] = "Inscription réussie !"; // valeur affichée dans la vue
+                    header('Refresh:1;url=index.php');
+                }
+                else {
+                    $data[] = "Problème d'inscription ! MDP différents !"; // erreur affichée dans la vue
+                }
+                
+            } else {
+                $data[] = "Pseudo déjà utilisé !"; // erreur affichée dans la vue
+            }
+        } else {
+            require($rep . $vues['erreur']); // erreur de type injection affichée dans la vue d'erreur
+            header('Refresh:2;url=index.php?action=AfficherInscription');
+        }
+        sleep(1); // attente pour afficher bandeau statut connexion
+        require($rep . $vues['inscription']);
     }
 
     /**

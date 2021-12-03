@@ -86,8 +86,8 @@ class ListeTachesGateway
      */
     public function nbListeTaches()
     {
-        $query = 'SELECT count(*) FROM ListeTaches';
+        $query = 'SELECT * FROM ListeTaches';
         $this->con->executeQuery($query, array());
-        return $this->con->getResults();
+        return $this->con->getCount();
     }
 }

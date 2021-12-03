@@ -27,7 +27,7 @@
                 <td>
                     <form method="post" action="index.php?action=SupprimerTache">
                         <input type="hidden" name="idTache" value="<?php echo $tache->getIdTache() ?>">
-                        <button class="btn btn-outline-primary inputSupprimerTache" type="submit"> Supprimer Tache</button>
+                        <button class="btn btn-outline-primary inputSupprimerTache" type="submit">Supprimer Tache</button>
                     </form>
                 </td>
 

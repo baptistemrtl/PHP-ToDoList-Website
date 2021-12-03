@@ -49,14 +49,14 @@
                     <input type="hidden" name="idListeTaches" value="<?php echo $liste->getIdListeTaches(); ?>">
                     <button type="submit" class="btn btn-outline-primary">Cliquez pour voir plus de tâches</button>
                 </form>
+                <form method='post' action="index.php?action=SupprimerListeTaches">
+                    <input type="hidden" name="idListeTaches" value="<?php echo $liste->getIdListeTaches(); ?>">
+                    <button type="submit" class="btn btn-outline-danger">Supprimer la liste</button>
+                </form>
             </figcaption>
         </div>
     <?php } ?>
 </div>
-
-<script src="scripts/jquery-3.3.1.min.js"></script>
-<script src="scripts/bootstrap.min.js"></script>
-<script src="scripts/scroll-animate.js"></script>
 
 </body>
 </html>

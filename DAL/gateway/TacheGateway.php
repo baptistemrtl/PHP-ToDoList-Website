@@ -85,9 +85,8 @@ class TacheGateway
      */
     public function nbTache()
     {
-        $query = 'SELECT count(*) FROM Tache';
+        $query = 'SELECT * FROM Tache';
         $this->con->executeQuery($query, array());
-        $results = $this->con->getResults();
-        return $results[0]["count(*)"];
+        return $this->con->getCount();
     }
 }

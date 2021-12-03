@@ -16,7 +16,7 @@ class ModelListeTaches
         global $dsn, $login, $mdp;
         $gateway = new ListeTachesGateway(new Connexion($dsn, $login, $mdp));
         $result = $gateway->getListeTachesbyID($idListeTache);
-        return new ListeTaches($result['idListeTaches'], $result['nom'], $result['confidentialite'], $result['description']);
+        return $results;
     }
 
     /**
@@ -29,10 +29,7 @@ class ModelListeTaches
         $tabN = array();
         $gateway = new ListeTachesGateway(new Connexion($dsn, $login, $mdp));
         $results = $gateway->getAllListeTachesPublic();
-        foreach ($results as $row) {
-            $tabN[] = new ListeTaches($row['idListeTaches'], $row['nom'], $row['confidentialite'], $row['description']);
-        }
-        return $tabN;
+        return $results;
     }
 
     /**
@@ -46,10 +43,7 @@ class ModelListeTaches
         $tabN = array();
         $gateway = new ListeTachesGateway(new Connexion($dsn, $login, $mdp));
         $results = $gateway->getAllListeTachesByPseudo($pseudo);
-        foreach ($results as $row) {
-            $tabN[] = new ListeTaches($row['idListeTaches'], $row['nom'], $row['confidentialite'], $row['description']);
-        }
-        return $tabN;
+        return $results;
     }
 
     /**

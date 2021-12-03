@@ -4,7 +4,7 @@
  * Contient les fonctions pour les actions d'un utilisateur
  * Class UtilisateurControleur
  */
-class UtilisateurControleur
+class UtilisateurControleur extends VisiteurControleur
 {
     function __construct()
     {

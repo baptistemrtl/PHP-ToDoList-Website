@@ -17,10 +17,7 @@ class ModelTache
         $tabN = array();
         $gateway = new TacheGateway(new Connexion($dsn, $login, $mdp));
         $results = $gateway->getAllTachesByIdListeTaches($idListeTaches);
-        foreach ($results as $row) {
-            $tabN[] = new Tache($row['idTache'], $row['nom'], $row['terminee'], $row['idListeTaches']);
-        }
-        return $tabN;
+        return $results;
     }
 
     /**
@@ -64,7 +61,7 @@ class ModelTache
         global $dsn, $login, $mdp;
         $gateway = new TacheGateway(new Connexion($dsn, $login, $mdp));
         $result = $gateway->getTacheByIdTache($idTache);
-        return new Tache($result['idTache'], $result['nom'], $result['terminee'], $result['idListeTaches']);
+        return $result;
     }
 
     /** Permet de modifier le statut de la tâche (fini ou non)

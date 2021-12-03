@@ -10,6 +10,10 @@
     <link type="text/css" href="style/connexion.css" rel="stylesheet" media="all">
     <link type="text/css" href="style/inscription.css" rel="stylesheet" media="all">
 
+    <script src="scripts/jquery-3.3.1.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/scroll-animate.js"></script>
+
     <title>To Do List</title>
 </head>
 
@@ -20,9 +24,9 @@
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand pl-5" href="../index.php"><img src="img/logo.png"
+        <a class="navbar-brand pl-5" href="#"><img src="img/logo.png"
                                                            class="rounded float-left"
-                                                           alt="logo To DO List"></a>
+                                                           alt="ToDoList"></a>
         <div class="collapse navbar-collapse justify-content-end mr-5" id="navbarNav">
 
             <ul class="navbar-nav">

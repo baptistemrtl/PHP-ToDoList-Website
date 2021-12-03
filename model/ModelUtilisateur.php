@@ -28,6 +28,33 @@ class ModelUtilisateur
     }
 
     /**
+     * Permet de savoir si un pseudo est déjà utilisé par un utilisateur
+     * @param string $pseudo pseudo de l'utilisateur
+     * @return bool
+     */
+    static function findUser(string $pseudo) : bool
+    {
+       global $dsn, $login, $mdp;
+        $gateway = new UtilisateurGateway(new Connexion($dsn, $login, $mdp)); 
+    }
+
+    static function inscription(string $pseudo, string $motDePasse, string $remdp): bool
+    {
+        global $dsn, $login, $mdp;
+        $gateway = new UtilisateurGateway(new Connexion($dsn, $login, $mdp));
+        $pseudo = Nettoyage::NettoyageString($pseudo);
+        $motDePasse = Nettoyage::NettoyageString($motDePasse);
+        $remdp = Nettoyage::NettoyageString($remdp);
+        if ($motDePasse != $remdp) {
+            return false;
+        }
+        $gateway->insererUtilisateur($pseudo,$motDePasse);
+        $_SESSION['role'] = 'utilisateur';
+        $_SESSION['pseudo'] = $pseudo;
+        return true;
+    }
+
+    /**
      * Permet de réintialiser la session et de ce fait déconnecter l'utilisateur
      */
     static function deconnexion()

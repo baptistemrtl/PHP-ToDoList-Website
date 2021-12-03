@@ -12,7 +12,7 @@ if (isset($data) && !empty($data)) { ?>
 <div id="containerConnexion">
 
     <h1>S'inscrire</h1>
-    <form method='post' action="index.php?action=Connexion">
+    <form method='post' action="index.php?action=Inscription">
         <p>
             <label for="inputPseudo">Nom d'utilisateur</label>
             <input type="text" id="inputPseudo" placeholder="Entrez le nom d'utilisateur..." name="pseudo" required>

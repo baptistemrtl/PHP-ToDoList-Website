@@ -4,7 +4,6 @@
 class ListeTachesGateway
 {
     private $con;
-    private $tab;
 
     public function __construct($c)
     {
@@ -21,7 +20,8 @@ class ListeTachesGateway
         $query = 'SELECT * FROM ListeTaches where idListeTaches=:idListeTaches';
         $this->con->executeQuery($query, array(':idListeTaches' => array($idListeTaches, PDO::PARAM_INT)));
         $results = $this->con->getResult();
-        return new ListeTaches($results[0]['idListeTaches'], $results[0]['nom'], $results[0]['confidentialite'], $results[0]['description']);
+        $lt = new ListeTaches($results['idListeTaches'], $results['nom'], $results['confidentialite'], $results['description']);
+        return $lt;
     }
 
     /**
@@ -52,7 +52,7 @@ class ListeTachesGateway
         foreach ($results as $row) {
             $tab[]=new ListeTaches($row['idListeTaches'], $row['nom'], $row['confidentialite'], $row['description']);
         }
-        return $tab;
+        return $tab??[];
     }
 
     /**
@@ -62,11 +62,14 @@ class ListeTachesGateway
      * @param string $description description de la liste
      * @param $pseudo // pseudo de l'utilisateur ou NULL si liste publique
      */
-    public function insertListeTaches(string $nom, bool $confidentialite, string $description,string $pseudo)
+    public function insertListeTaches(string $nom, bool $confidentialite, string $description,$pseudo)
     {
         $query = 'Insert into ListeTaches values(NULL, :nom, :confidentialite, :description, :pseudo)';
-        $this->con->executeQuery($query, array(':nom' => array($nom, PDO::PARAM_STR),
-            ':confidentialite' => array($confidentialite, PDO::PARAM_INT), ':description' => array($description, PDO::PARAM_STR), ':pseudo' => array($pseudo, PDO::PARAM_STR)));
+        $this->con->executeQuery($query, array(
+            ':nom' => array($nom, PDO::PARAM_STR),
+            ':confidentialite' => array($confidentialite, PDO::PARAM_INT), 
+            ':description' => array($description, PDO::PARAM_STR), 
+            ':pseudo' => array($pseudo, PDO::PARAM_STR)));
     }
 
 

@@ -1,3 +1,4 @@
+
 <?php
 
 /**
@@ -15,7 +16,7 @@ class ModelListeTaches
     {
         global $dsn, $login, $mdp;
         $gateway = new ListeTachesGateway(new Connexion($dsn, $login, $mdp));
-        $result = $gateway->getListeTachesbyID($idListeTache);
+        $results = $gateway->getListeTachesbyID($idListeTache);
         return $results;
     }
 

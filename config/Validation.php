@@ -3,29 +3,16 @@
 class Validation{
 
 	public static function ValidationString(string $string) : bool{
-		$string = Nettoyage::NettoyageString($string);
-		if (isset($string) or empty($string)) {
-			return false;
-		}
 		if (filter_var($string, FILTER_SANITIZE_STRING)) {
 			return true;
 		}
-		return false;
-	}
-
-	public static function ValidationEmail(string $email) : bool{
-		$email = Nettoyage::NettoyageEmail($email);
-		if (isset($email) or empty($email)) {
+		if (isset($string) or empty($string)) {
 			return false;
 		}
-		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-			return true;
-		}
 		return false;
 	}
 
-	public statis function ValidationInt(int $entier) : bool{
-		$entier = Nettoyage::NettoyageInt($entier);
+	public static function ValidationInt(int $entier) : bool{
 		if (isset($entier) or empty(entier)) {
 			return false;
 		}
@@ -45,14 +32,14 @@ class Validation{
         return false;
     }
 
-    public static function ValidationConnexion(string login,string passwd) : bool{
-    	if (!ValidationString($login)) {
-    		$Vueerreur[]='Login mal tapé (vide ou caractères incorrects)'
+    public static function ValidationConnexion(string $login,string $passwd){
+    	global $Vueerreur;
+    	if (!Validation::ValidationString($login)) {
+    		$Vueerreur[]='Login mal tapé (vide ou caractères incorrects)';
     	}
-    	if (!ValidationString($passwd)) {
-    		$Vueerreur[]='Password mal tapé (vide ou caractères incorrects)'
+    	if (!Validation::ValidationString($passwd)) {
+    		$Vueerreur[]='Password mal tapé (vide ou caractères incorrects)';
     	}
-    	return $Vueerreur;
 
     }
 }

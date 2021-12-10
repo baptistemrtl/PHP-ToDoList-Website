@@ -37,7 +37,8 @@ class TacheGateway
     {
         $query = 'Insert into Tache values(NULL, :nom, :terminee, :idListeTaches )';
         $this->con->executeQuery($query, array(':nom' => array($nom, PDO::PARAM_STR),
-            ':terminee' => array($terminee, PDO::PARAM_INT), ':idListeTaches' => array($idListeTaches, PDO::PARAM_INT)));
+            ':terminee' => array($terminee, PDO::PARAM_INT), 
+            ':idListeTaches' => array($idListeTaches, PDO::PARAM_INT)));
     }
 
     /** Permet la suppression d'une tâche par son IDTache
@@ -66,8 +67,8 @@ class TacheGateway
     {
         $query = 'SELECT * FROM Tache where idTache=:idTache';
         $this->con->executeQuery($query, array(':idTache' => array($idTache, PDO::PARAM_INT)));
-        $res = $this->con->getResult();
-        return new Tache($results[0]['idTache'],$results[0]['nom'],$results[0]['terminee'],$results[0]['idListeTaches']);
+        $results = $this->con->getResult();
+        return new Tache($results['idTache'],$results['nom'],$results['terminee'],$results['idListeTaches']);
     }
 
     /** Permet de modifier le statut de la tâche (fini ou non)
@@ -77,7 +78,9 @@ class TacheGateway
     public function UpdateTerminee(int $idTache, bool $terminee)
     {
         $query = 'UPDATE Tache set terminee=:terminee where idTache=:idTache';
-        $this->con->executeQuery($query, array(':idTache' => array($idTache, PDO::PARAM_INT), ':terminee' => array($terminee, PDO::PARAM_BOOL)));
+        $this->con->executeQuery($query, array(
+            ':idTache' => array($idTache, PDO::PARAM_INT), 
+            ':terminee' => array($terminee, PDO::PARAM_BOOL)));
     }
 
     /** Permet de retourner le nombre de tâches de toutes les listes

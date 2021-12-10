@@ -26,6 +26,7 @@ class UtilisateurGateway
 
         $result = $this->con->getResults();
         return password_verify($mdp, $result[0]['motDePasse']);
+        //return $mdp == $result[0]['motDePasse'];
     }
 
     /**
@@ -61,6 +62,6 @@ class UtilisateurGateway
     public function insererUtilisateur($pseudo, $motDePasse)
     {
         $query = 'INSERT INTO UTILISATEUR VALUES(:pseudo,:motDePasse)';
-        $this->con->executeQuery($query, array(':pseudo' => array($pseudo, PDO::PARAM_STR), ':motDePasse' => array($motDePasse, PDO::PARAM_STR)));
+        $this->con->executeQuery($query, array(':pseudo' => array($pseudo, PDO::PARAM_STR), ':motDePasse' => array(password_hash($motDePasse,PASSWORD_DEFAULT), PDO::PARAM_STR)));
     }
 }

@@ -123,7 +123,7 @@ class VisiteurControleur
     {
         $privee = false;// confidentialite de la liste
         global $rep, $vues;
-        $nomListe = Nettoyage::NettoyageString($_REQUEST['nomListe']);
+        $nomListe = Nettoyage::NettoyageString($_REQUEST["nomListe"]);
         if (Validation::ValidationString($nomListe)) { // si nom de la liste valide
             require($rep . $vues['ajoutDescriptionListe']);
         } else {
@@ -142,8 +142,8 @@ class VisiteurControleur
         $privee = false; // confidentialite de la liste
         $pseudo = NULL; // liste publique donc pseudo égal à NULL
 
-        $nomListe = Nettoyage::NettoyageString($_REQUEST['nomListe']);
-        $description = Nettoyage::NettoyageString($_REQUEST['description']);
+        $nomListe = Nettoyage::NettoyageString($_REQUEST["nomListe"]);
+        $description = Nettoyage::NettoyageString($_REQUEST["description"]);
         if (Validation::ValidationString($description)) { // si la description n'est pas vide
             ModelListeTaches::insertListeTaches($nomListe, $privee, $description, $pseudo);
             $this->Reinit();
@@ -170,8 +170,8 @@ class VisiteurControleur
      */
     function SupprimerListeTaches()
     {
-        $IdlisteTache = $_REQUEST['idListeTaches'];
-        ModelListeTaches::deleteListeTaches($IdlisteTache);
+        $idlisteTache = $_REQUEST['idListeTaches'];
+        ModelListeTaches::deleteListeTaches($idlisteTache);
         $this->Reinit();
     }
 
@@ -217,32 +217,30 @@ class VisiteurControleur
      */
     function Inscription()
     {
-        global $rep, $vues;
+        global $rep, $vues, $Vueerreur;
         $pseudo = $_REQUEST['pseudo'];
         $mdp = $_REQUEST['mdp'];
         $remdp = $_REQUEST['remdp'];
         $data = array();
-        $Vueerreur = Validation::ValidationConnexion($pseudo, $mdp); // vérification que les données sont valides
-        $Vueerreur = Validation::ValidationConnexion($pseudo, $remdp);
+        Validation::ValidationConnexion($pseudo, $mdp); // vérification que les données sont valides
+        Validation::ValidationConnexion($pseudo, $remdp);
         if (empty($Vueerreur)) { // si valide
             if (!ModelUtilisateur::findUser($pseudo)) { // si le peuso n'est pas déjà utilisé
                 if (ModelUtilisateur::inscription($pseudo,$mdp,$remdp)) { //Si l'inscription a marché
-                    $data[] = "Inscription réussie !"; // valeur affichée dans la vue
+                    //$data[] = "Inscription réussie !"; // valeur affichée dans la vue
                     header('Refresh:1;url=index.php');
                 }
                 else {
-                    $data[] = "Problème d'inscription ! MDP différents !"; // erreur affichée dans la vue
+                    $Vueerreur[] = "Problème d'inscription ! MDP différents !"; // erreur affichée dans la vue
                 }
                 
             } else {
-                $data[] = "Pseudo déjà utilisé !"; // erreur affichée dans la vue
+                $Vueerreur[] = "Pseudo déjà utilisé !"; // erreur affichée dans la vue
             }
         } else {
             require($rep . $vues['erreur']); // erreur de type injection affichée dans la vue d'erreur
-            header('Refresh:2;url=index.php?action=AfficherInscription');
+            header('Refresh:5;url=index.php?action=AfficherInscription');
         }
-        sleep(1); // attente pour afficher bandeau statut connexion
-        require($rep . $vues['inscription']);
     }
 
     /**

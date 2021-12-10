@@ -35,8 +35,9 @@ class ModelUtilisateur
     static function findUser(string $pseudo) : bool
     {
        global $dsn, $login, $mdp;
-        $gateway = new UtilisateurGateway(new Connexion($dsn, $login, $mdp)); 
-    }
+        $gateway = new UtilisateurGateway(new Connexion($dsn, $login, $mdp));
+        return $gateway->findUtilisateurbyPseudo($pseudo);
+      }
 
     static function inscription(string $pseudo, string $motDePasse, string $remdp): bool
     {

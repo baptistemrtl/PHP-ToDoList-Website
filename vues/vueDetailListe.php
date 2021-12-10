@@ -82,7 +82,7 @@
 
     <form method="post" action="index.php?action=SupprimerListeTaches" >
         <input type="hidden" name="idListeTaches" value="<?php echo $listetaches->getIdListeTaches() ?>">
-        <button class="btn btn-outline-primary" id="inputSupprimerListe" type="submit"> Supprimer Liste Taches</button>
+        <button class="btn btn-outline-danger" id="inputSupprimerListe" type="submit"> Supprimer Liste Taches</button>
     </form>
 
 </div>

@@ -3,7 +3,7 @@
 <div class="container AjoutEntite">
     <h2>Ajout d'une liste publique</h2>
     <form method='post' action="index.php?action=AjouterTitreListePublique">
-        <input class="InputSaisie" type="text" name="nomListe" placeholder="Nom de la liste..." value="" required>
+        <input class="InputSaisie" type="text" name="nomListe" placeholder="Nom de la liste..." required>
         <input type="submit" class="AddBtn InputSaisie" value="Ajouter la liste">
     </form>
 </div>
@@ -11,17 +11,10 @@
 <div class="row align-items-start">
 
     <?php
-    require_once(__DIR__ . "/../config/config.php");
-    require_once(__DIR__ . "/../config/Autoload.php");
-    Autoload::charger();
     
-    global $rep,$dsn,$login,$mdp;
-
-    $gt = new ListeTachesGateway(new Connexion($dsn,$login,$mdp));
-    $tachegateway = new TacheGateway(new Connexion($dsn, $login, $mdp));
-    $tabListeTaches = $gt->getAllListeTachesPublic();
+    $tabListeTaches = ModelListeTaches::getAllListeTachesPublic();
     foreach ($tabListeTaches as $listetaches) {
-        $listetaches->setListeTaches($tachegateway->getAllTachesByIdListeTaches($listetaches->getIdListeTaches()));
+        $listetaches->setListeTaches(ModelTache::getAllTachesByIdListeTaches($listetaches->getIdListeTaches()));
     }
     foreach ($tabListeTaches as $liste) {
         ?>
@@ -49,14 +42,13 @@
                     <input type="hidden" name="idListeTaches" value="<?php echo $liste->getIdListeTaches(); ?>">
                     <button type="submit" class="btn btn-outline-primary">Cliquez pour voir plus de tâches</button>
                 </form>
-                <form method='post' action="index.php?action=SupprimerListeTaches">
-                    <input type="hidden" name="idListeTaches" value="<?php echo $liste->getIdListeTaches(); ?>">
-                    <button type="submit" class="btn btn-outline-danger">Supprimer la liste</button>
-                </form>
             </figcaption>
         </div>
     <?php } ?>
 </div>
-
+        
+        <script src="scripts/jquery-3.3.1.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/scroll-animate.js"></script>
 </body>
 </html>

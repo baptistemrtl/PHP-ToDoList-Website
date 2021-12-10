@@ -4,14 +4,14 @@
 #VoirPlusTache
 {
     text-align: center;
-    color: white;
+    color: black;
     padding: 20;
     box-shadow: 0 0 3px 3px #54c2ff;
 }
 
 /* tableau pour aligner les taches */
 table {
-    color: white;
+    color: black;
     margin: 30px auto;
     border-collapse: collapse;
 }

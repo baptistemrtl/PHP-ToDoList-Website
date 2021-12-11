@@ -1,9 +1,6 @@
 <?php
 
-/**
- * classe contenant les fonctions pour un utilisateur
- * Class ModelUtilisateur
- */
+
 class ModelUtilisateur
 {
     /**
@@ -39,6 +36,13 @@ class ModelUtilisateur
         return $gateway->findUtilisateurbyPseudo($pseudo);
       }
 
+    /**
+     * Permet d'enregistret un nouvel utilisateur dans la BDD
+     * @param string $pseudo psuedo de l'utilisateur
+     * @param string $motDePasse mot de passe entré
+     * @param string $remdp confirmation du mot de passe
+     * @return bool
+     */
     static function inscription(string $pseudo, string $motDePasse, string $remdp): bool
     {
         global $dsn, $login, $mdp;
@@ -46,11 +50,11 @@ class ModelUtilisateur
         $pseudo = Nettoyage::NettoyageString($pseudo);
         $motDePasse = Nettoyage::NettoyageString($motDePasse);
         $remdp = Nettoyage::NettoyageString($remdp);
-        if ($motDePasse != $remdp) {
+        if ($motDePasse != $remdp) { // si les deux mdp ne correspondent pas
             return false;
         }
-        $gateway->insererUtilisateur($pseudo,$motDePasse);
-        $_SESSION['role'] = 'utilisateur';
+        $gateway->insererUtilisateur($pseudo,$motDePasse); //insertion de l'utilisateur dans la BDD
+        $_SESSION['role'] = 'utilisateur'; //définition de la session
         $_SESSION['pseudo'] = $pseudo;
         return true;
     }

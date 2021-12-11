@@ -4,7 +4,7 @@
     padding: 15;
     margin: auto;
     box-shadow: 0 0 3px 3px #54c2ff;
-    color: skyblue;
+    color: black;
     height: 450px;
 }
 
@@ -20,7 +20,7 @@
     width: 100%;
     padding: 12px 20px;
     margin-top: 2px;
-    color: skyblue;
+    color: black;
 
 }
 
@@ -30,7 +30,7 @@
 
 #containerConnexion input[type=submit] {
     background-color: #FFF;
-    color: skyblue;
+    color: black;
     padding: 14px 20px;
     margin-top: 25px;
     cursor: pointer;

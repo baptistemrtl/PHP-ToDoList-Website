@@ -1,10 +1,7 @@
 
 <?php
 
-/**
- * classe contenant les fonctions pour une liste de tâches
- * Class ModelListeTaches
- */
+
 class ModelListeTaches
 {
     /**

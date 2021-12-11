@@ -3,7 +3,17 @@
 
 <div id="VoirPlusTache" class="container">
 
-    <h2><?php echo $listetaches->getNom() ?></h2>
+    <h2><?php echo strtoupper($listetaches->getNom()) ?></h2>
+    <article><?php echo $listetaches->getDescription() ?></article>
+
+    <div class="container AjoutEntite" style="background-color: #007ebd;">
+    <h2>Ajouter une tâche</h2>
+    <form method="post" action="index.php?action=AjouterTache">
+        <input type="hidden" name="idListeTaches" value="<?php echo $listetaches->getIdListeTaches() ?>">
+        <input class="InputSaisie" name="NomTache" type="text" placeholder="Entrez le nom de la tâche" required>
+        <input type="submit" class="AddBtn mb-5 InputSaisie" value="Ajouter la tâche">
+    </form>
+</div>
 
     <table>
         <tr>
@@ -64,17 +74,6 @@
 
     </table>
 
-    <h4>Description de la liste de tâches : </h4>
-    <article><?php echo $listetaches->getDescription() ?></article>
-</div>
-
-<div class="container AjoutEntite">
-    <h2>Ajouter une tâche</h2>
-    <form method="post" action="index.php?action=AjouterTache">
-        <input type="hidden" name="idListeTaches" value="<?php echo $listetaches->getIdListeTaches() ?>">
-        <input class="InputSaisie" name="NomTache" type="text" placeholder="Entrez le nom de la tâche" required>
-        <input type="submit" class="AddBtn mb-5 InputSaisie" value="Ajouter la tâche">
-    </form>
 </div>
 
 <div class="container">

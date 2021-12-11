@@ -17,7 +17,7 @@ class TacheGateway
      */
     public function getAllTachesByIdListeTaches(int $idListeTaches)
     {
-        $query = 'SELECT * FROM TACHE where idListeTaches=:idListeTaches order by idTache';
+        $query = 'SELECT * FROM Tache where idListeTaches=:idListeTaches order by idTache';
         $tab=array();
         $this->con->executeQuery($query, array(':idListeTaches' => array($idListeTaches, PDO::PARAM_INT)));
         $results = $this->con->getResults();

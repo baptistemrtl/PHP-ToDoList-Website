@@ -1,9 +1,6 @@
 <?php
 
-/**
- * Contient les fonctions pour les actions des visiteurs
- * Class VisiteurControleur
- */
+
 class VisiteurControleur
 {
     function __construct()
@@ -199,8 +196,7 @@ class VisiteurControleur
         $Vueerreur = Validation::ValidationConnexion($pseudo, $mdp); // vérification que les données sont valides
         if (empty($Vueerreur)) { // si valide
             if (ModelUtilisateur::connexion($pseudo, $mdp)) { // si l'utilisateur est dans la base de données
-                $data[] = "Connexion réussie !"; // valeur affichée dans la vue
-                header('Refresh:2;url=index.php');
+                header('Refresh:1;url=index.php');
             } else {
                 $data[] = "Problème de connexion ! Le pseudo ou mot de passe est incorrect !"; // erreur de type pseudo ou mdp incorrect valeur affichée dans la vue
             }
@@ -231,15 +227,15 @@ class VisiteurControleur
                     header('Refresh:1;url=index.php');
                 }
                 else {
-                    $Vueerreur[] = "Problème d'inscription ! MDP différents !"; // erreur affichée dans la vue
+                    $data[] = "Problème d'inscription ! MDP différents !"; // erreur affichée dans la vue
                 }
                 
             } else {
-                $Vueerreur[] = "Pseudo déjà utilisé !"; // erreur affichée dans la vue
+                $data[] = "Pseudo déjà utilisé !"; // erreur affichée dans la vue
             }
         } else {
             require($rep . $vues['erreur']); // erreur de type injection affichée dans la vue d'erreur
-            header('Refresh:5;url=index.php?action=AfficherInscription');
+            header('Refresh:0;url=index.php?action=AfficherInscription');
         }
     }
 

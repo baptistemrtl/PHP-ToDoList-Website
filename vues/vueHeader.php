@@ -17,7 +17,7 @@
 
 <body class="bg-white">
 <header>
-    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: #007ebd;">
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -53,7 +53,7 @@
 </header>
 
 <div class="jumbotron jumbotron-fluid" id="banniere">
-    <div class="container-fluid bg-info">
+    <div class="container-fluid" style="color: #007ebd;">
         <h1 class="display-4 font-weight-bold">To Do List - Baptiste Martel G1</h1>
     </div>
 </div>

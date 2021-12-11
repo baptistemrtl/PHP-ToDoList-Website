@@ -1,9 +1,6 @@
 <?php
 
-/**
- * classe métier d'une liste de tâches
- * Class ListeTaches
- */
+
 class ListeTaches
 {
     private $idListeTaches;

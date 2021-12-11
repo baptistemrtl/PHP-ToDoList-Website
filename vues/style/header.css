@@ -1,6 +1,7 @@
 /*JUMBOTTRON DE LA PAGE*/
 #banniere {
     background-size: cover;
+    background-color: #FFF;
     text-align: center;
     color:white;
     padding : 75;
@@ -14,6 +15,7 @@
 
 /* barre bleu sous la navBarre*/
 .nav-link {
-    border-bottom: 3px solid #238bc4;
+    border-bottom: 3px solid #FFF;
+    color: white;
     margin-right: 5;
 }

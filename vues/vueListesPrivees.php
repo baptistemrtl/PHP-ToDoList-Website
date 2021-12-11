@@ -1,6 +1,6 @@
 <?php require("vueHeader.php") ?>
 
-<div class="container AjoutEntite">
+<div class="container AjoutEntite" style="background-color: #007ebd;">
     <h2>Ajout d'une liste privée</h2>
     <form method='post' action="index.php?action=AjouterTitreListePrivee">
         <input class="InputSaisie" type="text" name="nomListe" placeholder="Nom de la liste..." value="" required>
@@ -22,7 +22,7 @@
                     $i = 0; ?></h2>
                 <ul>
                     <?php foreach ($liste->getListeTaches() as $tache) {
-                        if (!$tache->getTerminee() && $i <= $tacheMax) { ?>
+                        if (!$tache->getTerminee() && $i < $tacheMax) { ?>
                             <li><?php echo $tache->getNom();
                                 $i++ ?></li>
                         <?php }

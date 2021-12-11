@@ -7,10 +7,16 @@ $rep = __DIR__ . '/../';
 $tacheMax = 3;
 
 //BD
+
 $dsn = 'mysql:host=localhost;dbname=todolist;charset=utf8';
 $base = "todolist";
 $login = "usertdl";
 $mdp = "OR7M07rEmwW9lq5F";
+
+/*$dsn = 'mysql:host=berlin.iut.local;dbname=dbbamartel;charset=utf8';
+$base = "dbbamartel";
+$login = "bamartel";
+$mdp = "EaqKmxA3vwRCGOhs";*/
 
 //Vues
 $vues['erreur'] = 'vues/vueErreur.php';

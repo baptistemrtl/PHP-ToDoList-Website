@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `utilisateur`
 --
 
-DROP TABLE IF EXISTS `utilisateur`;
+DROP TABLE IF EXISTS `Utilisateur`;
 CREATE TABLE IF NOT EXISTS `utilisateur` (
   `pseudo` varchar(20) NOT NULL,
   `motDePasse` varchar(255) NOT NULL,
@@ -25,7 +25,6 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO 'utlisateur' ('pseudo','motDePasse') VALUES ('bamartel','mdpbamartel');
 
 
 -- --------------------------------------------------------
@@ -35,7 +34,7 @@ INSERT INTO 'utlisateur' ('pseudo','motDePasse') VALUES ('bamartel','mdpbamartel
 -- Structure de la table `listetaches`
 --
 
-DROP TABLE IF EXISTS `listetaches`;
+DROP TABLE IF EXISTS `ListeTaches`;
 CREATE TABLE IF NOT EXISTS `listetaches` (
   `idListeTaches` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(20) NOT NULL,
@@ -62,7 +61,7 @@ INSERT INTO `listetaches` (`idListeTaches`, `nom`, `confidentialite`, `descripti
 -- Structure de la table `tache`
 --
 
-DROP TABLE IF EXISTS `tache`;
+DROP TABLE IF EXISTS `Tache`;
 CREATE TABLE IF NOT EXISTS `tache` (
   `idTache` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) NOT NULL,

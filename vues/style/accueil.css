@@ -9,10 +9,9 @@ h4 {
 
 /*Style de l'ajout d'une to Do List */
 .AjoutEntite {
-    background-image: url(../img/test.png);
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 100;
+    padding: 60;
     color: white;
     text-align: left;
     margin-top: 100px;

@@ -1,9 +1,6 @@
 <?php
 
-/**
- * classe contenant les fonctions pour une tache
- * Class ModelTache
- */
+
 class ModelTache
 {
     /**

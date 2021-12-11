@@ -18,7 +18,7 @@ class UtilisateurGateway
      */
     public function rechercherUtilisateur(string $pseudo, string $mdp): bool
     {
-        $query = 'SELECT * FROM UTILISATEUR WHERE pseudo= :pseudo';
+        $query = 'SELECT * FROM Utilisateur WHERE pseudo= :pseudo';
         $this->con->executeQuery($query, array(':pseudo' => array($pseudo, PDO::PARAM_STR)));
         if ($this->con->getCount() != 1) {
             return false;
@@ -36,7 +36,7 @@ class UtilisateurGateway
      */
     public function findUtilisateurbyPseudo(string $pseudo) : bool
     {
-        $query = 'SELECT * FROM UTILISATEUR WHERE pseudo= :pseudo';
+        $query = 'SELECT * FROM Utilisateur WHERE pseudo= :pseudo';
         $this->con->executeQuery($query, array(':pseudo' => array($pseudo, PDO::PARAM_STR)));
         if ($this->con->getCount() != 1) {
             return false;
@@ -50,7 +50,7 @@ class UtilisateurGateway
      */
     public function supprimerUtilisateur($pseudo)
     {
-        $query = 'DELETE FROM UTILISATEUR WHERE pseudo = :pseudo';
+        $query = 'DELETE FROM Utilisateur WHERE pseudo = :pseudo';
         $this->con->executeQuery($query, array(':pseudo' => array($pseudo, PDO::PARAM_STR)));
     }
 
@@ -61,7 +61,7 @@ class UtilisateurGateway
      */
     public function insererUtilisateur($pseudo, $motDePasse)
     {
-        $query = 'INSERT INTO UTILISATEUR VALUES(:pseudo,:motDePasse)';
+        $query = 'INSERT INTO Utilisateur VALUES(:pseudo,:motDePasse)';
         $this->con->executeQuery($query, array(':pseudo' => array($pseudo, PDO::PARAM_STR), ':motDePasse' => array(password_hash($motDePasse,PASSWORD_DEFAULT), PDO::PARAM_STR)));
     }
 }
